@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs">
+  <li <%= (controller.controller_name == 'home')? 'class=active': '' %>>
+    <%= link_to "Home", root_path %>
+  </li>
+  <li <%= (controller.controller_name == 'admin')? 'class=active': '' %>>
+    <%= link_to "Administração", 'admin_index_path' %>
+  </li>
+  <li class="disabled">
+    <a href="#">Messages</a>
+  </li>
+  <li class="dropdown pull-right">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+      <%= image_tag '@current_user.avatar.small' if '@current_user.avatar' %>
+      <%= '@current_user.name' %>
+      <strong class="caret"></strong>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="#">Configurações</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to "Sair", 'signout_path', method: :delete %>
+      </li>
+    </ul>
+  </li>
+</ul>
