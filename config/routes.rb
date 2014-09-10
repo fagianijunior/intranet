@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+
+  get 'admin/index'
+
+  resources :branch_contacts
+
+  resources :branches
+
+  resources :contact_types
+
+  resources :user_contacts
+
+  resources :cities
+
+  resources :states
+
+  resources :genders
+
+  resources :positions
+
+  resources :sessions, only: [ :new, :create, :destroy ]
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  resources :users
+
   #get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

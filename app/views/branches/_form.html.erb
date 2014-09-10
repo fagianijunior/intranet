@@ -1,0 +1,17 @@
+<%= simple_form_for(@branch, html: { class: "form-horizontal", multipart: true }, defaults: { input_html: { class: "form-control" }, label: false }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="col-sm-5">
+    <div class="form-inputs">
+      <br>
+      <%= f.input :branch, placeholder: "Abreviação da filial" %>
+      <%= f.input :address, placeholder: "Endereço" %>
+      <%= f.association :state, label_method: :name, prompt: "Selecione um estado" %>
+      <%= f.association :city, label_method: :name, prompt: "Selecione uma cidade" %>
+    </div>
+    <div class="form-actions">
+      <hr>
+      <%= f.button :submit, "Salvar" %>
+    </div>
+  </div>
+<% end %>

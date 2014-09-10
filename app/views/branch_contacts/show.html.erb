@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @branch_contact.branch %>
+</p>
+
+<p>
+  <strong>Contacttype:</strong>
+  <%= @branch_contact.contacttype %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @branch_contact.contact %>
+</p>
+
+<%= link_to 'Edit', edit_branch_contact_path(@branch_contact) %> |
+<%= link_to 'Back', branch_contacts_path %>

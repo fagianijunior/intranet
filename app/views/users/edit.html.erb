@@ -1,0 +1,17 @@
+<div class="row clearfix">
+  <div class="col-md-2 column">
+    <%= render "admin/menu" %>
+  </div>
+  <div class="col-md-10 column">
+    <div class="col-sm-12">
+      <%= link_to '<< Voltar', user_path, class: "btn btn-primary" %>
+      <hr>
+      <h2>Editando funcionário</h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-5">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

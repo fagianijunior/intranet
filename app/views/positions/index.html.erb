@@ -1,0 +1,33 @@
+<div class="row clearfix">
+  <div class="col-md-2 column">
+    <%= render "admin/menu" %>
+  </div>
+  <div class="col-md-10 column">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <%= link_to 'Novo cargo', new_position_path, class: "btn btn-primary" %>
+        <hr>
+      </div>
+      <div class="col-md-12 column">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @positions.each do |position| %>
+              <tr>
+                <td><%= position.position %></td>
+                <td><%= link_to 'Show', position %></td>
+                <td><%= link_to 'Edit', edit_position_path(position) %></td>
+                <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

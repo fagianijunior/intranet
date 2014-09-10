@@ -1,0 +1,19 @@
+<div class="row clearfix">
+  <div class="col-md-2 column">
+    <%= render "admin/menu" %>
+  </div>
+  <div class="col-md-10 column">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Position:</strong>
+      <%= @position.position %>
+    </p>
+
+    <%= link_to 'Edit', edit_position_path(@position) %> |
+    <%= link_to 'Back', positions_path %>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

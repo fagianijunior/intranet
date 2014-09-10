@@ -1,0 +1,50 @@
+<%= simple_form_for(@user, html: { class: "form-horizontal", multipart: true }, defaults: { input_html: { class: "form-control" }, label: false }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <br>
+      <%= field_set_tag "Dados pessoais" do %>
+      <%= image_tag(@user.avatar_url) if @user.avatar? %>
+      <%= f.input :avatar %>
+      <%= f.input :name, placeholder: "Nome completo" %>
+      <%= f.association :gender, label_method: :gender,  prompt: "Sexo" %>
+      <%= f.input :birth_date, label: "Data de nascimento", start_year: Date.today.year-65, end_year: Date.today.year, order: [ :day, :month, :year ], prompt: ["Dia", "Mês", "Ano"], input_html: { class: "datepicker" } %>
+    <% end %>
+    <br>
+    <br>
+    <%= field_set_tag "Dados de login" do %>
+      <abbr title = "Email do funcionário: usuario@email.com">
+        <%= f.input :email, placeholder: "usuario@email.com" %>
+      </abbr>
+      <abbr title="Senha: Mínimo 8 caracteres.">
+        <%= f.input :password, placeholder: "Senha" %>
+      </abbr>
+      <abbr title="Redigite a senha">
+        <%= f.input :password_confirmation, placeholder: "Repita a senha" %>
+      </abbr>
+    <% end %>
+    <br>
+    <br>
+    <%= field_set_tag "Dados de localização" do %>
+      <abbr title="Endereço e número">
+        <%= f.input :address, placeholder: "Endereço" %>
+      </abbr>
+      <%= f.association :state, label_method: :name, prompt: "Selecione um estado" %>
+      <%= f.association :city, label_method: :name, prompt: "Selecione uma cidade" %>
+    <% end %>
+    <br>
+    <br>
+    <%= field_set_tag "Posição na empresa" do %>
+    <%= f.association :position, label_method: :position, prompt: "Selecione um cargo" %>
+    <%= f.association :branch, label_method: :branch, prompt: "Selecione uma filial" %>
+      <%= f.input :active, label: "Funcionário ativo" %>
+    <% end %>
+  </div>
+  <div class="form-actions">
+    <hr>
+    <%= f.button :submit, "Salvar" %>
+    <br>
+    <br>
+    <br>
+  </div>
+<% end %>

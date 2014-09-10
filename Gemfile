@@ -3,9 +3,17 @@ source 'https://rubygems.org'
 # Ruby version
 ruby '2.1.2'
 
+#Upload de arquivo/imagens
+gem 'carrierwave', '~> 0.10.0'
+#Edicao de imagens
+gem 'mini_magick', '3.8.0'
+ 
+#Usado para senhas criptografadas
+gem 'bcrypt-ruby', '~> 3.1.5'
+
 #Simple form
-gem 'simple_form'
-gem 'country_select'
+gem 'simple_form', '~> 3.0.2'
+
 # Enables serving assets in production
 gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

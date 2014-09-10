@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @contact_type.type %>
+</p>
+
+<p>
+  <strong>Regex:</strong>
+  <%= @contact_type.regex %>
+</p>
+
+<%= link_to 'Edit', edit_contact_type_path(@contact_type) %> |
+<%= link_to 'Back', contact_types_path %>
