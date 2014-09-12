@@ -9,7 +9,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '3.8.0'
  
 #Usado para senhas criptografadas
-gem 'bcrypt-ruby', '~> 3.1.5'
+gem 'bcrypt', '~> 3.1.7'
 
 #Simple form
 gem 'simple_form', '~> 3.0.2'
