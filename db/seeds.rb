@@ -12,11 +12,11 @@ genders = Gender.create([{ gender: 'Masculino'}, { gender: 'Feminino' }])
 
 puts "POPULANDO TABELA STATES"
 puts "-----------------------"
-states = State.create([{ state: 'Ceará'}, { state: 'São Paulo' }])
+states = State.create([{ name: 'Ceará'}, { name: 'São Paulo' }])
 
 puts "POPULANDO TABELA CITIES"
 puts "-----------------------"
-cities = City.create([{ city: 'Fortaleza', state: State.find(1) }])
+cities = City.create([{ name: 'Fortaleza', state: State.find(1) }, { name: 'Campinas', state: State.find(2) }])
 
 puts "POPULANDO TABELA POSITIONS"
 puts "-----------------------"
