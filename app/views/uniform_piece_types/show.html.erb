@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @uniform_piece_type.name %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @uniform_piece_type.picture %>
+</p>
+
+<%= link_to 'Edit', edit_uniform_piece_type_path(@uniform_piece_type) %> |
+<%= link_to 'Back', uniform_piece_types_path %>

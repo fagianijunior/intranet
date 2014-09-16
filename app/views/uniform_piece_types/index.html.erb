@@ -1,0 +1,27 @@
+<h1>Listing uniform_piece_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uniform_piece_types.each do |uniform_piece_type| %>
+      <tr>
+        <td><%= uniform_piece_type.name %></td>
+        <td><%= image_tag uniform_piece_type.picture %></td>
+        <td><%= link_to 'Show', uniform_piece_type %></td>
+        <td><%= link_to 'Edit', edit_uniform_piece_type_path(uniform_piece_type) %></td>
+        <td><%= link_to 'Destroy', uniform_piece_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Uniform piece type', new_uniform_piece_type_path %>

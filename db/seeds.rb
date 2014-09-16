@@ -30,24 +30,24 @@ puts "CRIANDO USUÁRIO PADRÃO"
 puts "----------------------"
 user = User.create([{ name: 'Administrador', email: 'adm@adm.com', password: 'admadm', password_confirmation: 'admadm', avatar: 'avatar.png', gender: Gender.find(1), birth_date: '1985-10-28', address: 'Av. Das Graviolas, 360', city: City.find(1), state: State.find(1), position: Position.find(1), branch: Branch.find(1), active: true }])
 
-#puts "POPULANDO TIPOS DE UNIFORME"
-#puts "---------------------------"
-#unifome_piece_type = UniformPieceType.create([{ piece_type: 'Chapéu', picture: 'clothes/hat.png' },
-#                                              { piece_type: 'Boné', picture: 'clothes/cap.png' },
+puts "POPULANDO TIPOS DE UNIFORME"
+puts "---------------------------"
+unifome_piece_type = UniformPieceType.create([{ name: 'Chapéu', picture: 'clothes/hat.png' },
+                                              { name: 'Boné', picture: 'clothes/cap.png' },
 
-#                                              { piece_type: 'Mochila' },
-#                                              { piece_type: 'Bolsa', picture: 'clothes/bag.png' },
+                                              { name: 'Mochila' },
+                                              { name: 'Bolsa', picture: 'clothes/bag.png' },
 
-#                                              { piece_type: 'Luva', picture: 'clothes/shoes.png' },
+                                              { name: 'Luva', picture: 'clothes/shoes.png' },
 
- #                                             { piece_type: 'Camisa', picture: 'clothes/t-shirt.png'},
+                                              { name: 'Camisa', picture: 'clothes/t-shirt.png'},
 
-  #                                            { piece_type: 'Colar' },
-  #                                            { piece_type: 'Anel' },
-  #                                            { piece_type: 'Botton' },
+                                              { name: 'Colar' },
+                                              { name: 'Anel' },
+                                              { name: 'Botton' },
 
-  #                                            { piece_type: 'Calça', picture: 'clothes/pants.png' },
-  #                                            { piece_type: 'Vestido', picture: 'clothes/dress.png'},
+                                              { name: 'Calça', picture: 'clothes/pants.png' },
+                                              { name: 'Vestido', picture: 'clothes/dress.png'},
 
-#                                              { piece_type: 'Sapato', picture: 'clothes/shoes.png' }])
+                                              { name: 'Sapato', picture: 'clothes/shoes.png' }])
 

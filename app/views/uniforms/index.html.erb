@@ -1,0 +1,45 @@
+<div class="row clearfix">
+  <div class="col-md-2 column">
+    <%= render "admin/menu" %>
+  </div>
+  <div class="col-md-10 column">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <%= link_to 'Nova peça de uniforme', new_uniform_path, class: "btn btn-primary" %>
+        <hr>
+      </div>
+      <div class="col-md-12 column">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th> </th>
+              <th>Tipo</th>
+              <th>Pertence ao grupo</th>
+              <th>Data de entrada</th>
+              <th>Data para troca</th>
+              <th>Em mãos de</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @uniforms.each do |uniform| %>
+              <tr>
+                <td>#<%= uniform.id.to_s.rjust(6, '0') %></td>
+                <td><%= image_tag(uniform.uniform_piece_type.picture, { width: 15, height: 15 } ) if uniform.uniform_piece_type.picture? %></td>
+                <td><%= uniform.uniform_piece_type.name %></td>
+                <td><%= uniform.uniform_piece_group.name %></td>
+                <td><%= uniform.entry %></td>
+                <td><%= uniform.expiration %></td>
+                <td><%= uniform.user.name unless !uniform.user %></td>
+                <td><%= link_to 'Detalhes', uniform %></td>
+                <td><%= link_to 'Editar', edit_uniform_path(uniform) %></td>
+                <td><%= link_to 'Apagar', uniform, method: :delete, data: { confirm: 'Você têm certeza?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

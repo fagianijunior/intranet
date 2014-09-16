@@ -1,0 +1,23 @@
+<%= simple_form_for(@uniform, html: { class: "form-horizontal" }, defaults: { input_html: { class: "form-control" } }) do |f| %>
+  <%= f.error_notification %>
+  <div class="col-sm-12">
+    <div class="col-sm-5">
+      <div class="form-inputs">
+        <%= f.association :uniform_piece_type, collection: UniformPieceType.order( :name ), label_method: :name, prompt: "Tipo", label: false %>
+        <%= link_to '+Novo tipo', new_uniform_piece_type_path %>
+        <%= f.association :uniform_piece_group, collection: UniformPieceGroup.order( :name ), label_method: :name, prompt: "Pertence ao grupo", label: false %>
+        <%= link_to '+Novo grupo', new_uniform_piece_group_path %>
+        <%= f.input :entry, label: "Data de entrada", start_year: Date.today.year-5, end_year: Date.today.year+10, order: [ :day, :month, :year ], input_html: { class: "datepicker" } %>
+        <%= f.input :expiration, label: "Data para troca", start_year: Date.today.year, end_year: Date.today.year+20, order: [ :day, :month, :year ], input_html: { class: "datepicker" } %>
+        <%= f.association :user %>
+      </div>
+      <div class="form-actions">
+        <hr>
+        <%= f.button :submit %>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+<% end %>

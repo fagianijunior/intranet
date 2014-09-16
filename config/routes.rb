@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :uniforms
+
+  resources :uniform_piece_types
+
+  resources :uniform_piece_groups
+
   get 'admin/index'
 
   resources :branch_contacts

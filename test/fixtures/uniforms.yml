@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uniform_piece_type_id: 
+  uniform_piece_group_id: 
+  entry: 2014-09-13
+  expiration: 2014-09-13
+  user_id: 
+
+two:
+  uniform_piece_type_id: 
+  uniform_piece_group_id: 
+  entry: 2014-09-13
+  expiration: 2014-09-13
+  user_id: 

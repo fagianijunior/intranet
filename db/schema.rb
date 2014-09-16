@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907030849) do
+ActiveRecord::Schema.define(version: 20140913113752) do
 
   create_table "branch_contacts", force: true do |t|
     t.integer  "branch_id"
@@ -67,6 +67,38 @@ ActiveRecord::Schema.define(version: 20140907030849) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "uniform_piece_groups", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uniform_piece_groups", ["name"], name: "index_uniform_piece_groups_on_name", using: :btree
+
+  create_table "uniform_piece_types", force: true do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uniform_piece_types", ["name"], name: "index_uniform_piece_types_on_name", using: :btree
+
+  create_table "uniforms", force: true do |t|
+    t.integer  "uniform_piece_type_id"
+    t.integer  "uniform_piece_group_id"
+    t.date     "entry"
+    t.date     "expiration"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uniforms", ["uniform_piece_group_id"], name: "index_uniforms_on_uniform_piece_group_id", using: :btree
+  add_index "uniforms", ["uniform_piece_type_id"], name: "index_uniforms_on_uniform_piece_type_id", using: :btree
+  add_index "uniforms", ["user_id"], name: "index_uniforms_on_user_id", using: :btree
 
   create_table "user_contacts", force: true do |t|
     t.integer  "user_id"
