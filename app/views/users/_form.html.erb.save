@@ -35,8 +35,9 @@
     <br>
     <br>
     <%= field_set_tag "Posição na empresa" do %>
-    <%= f.association :position, label_method: :position, prompt: "Selecione um cargo" %>
-    <%= link_to "+Cargo", '#new_position_modal', 'data-toggle' => "modal" %>
+    <!--%= f.association :position, label_method: :position, prompt: "Selecione um cargo" %-->
+    <% render partial: 'select_positions', locals: { user: user } %>
+    <%= link_to "+Cargo", new_position_path, data: {toggle: "modal", target: "#ajax-modal" } %>
 
     <%= f.association :branch, label_method: :branch, prompt: "Selecione uma filial" %>
     <%= link_to "+Filial", new_branch_path %>
@@ -51,19 +52,3 @@
     <br>
   </div>
 <% end %>
-<div class="modal fade" id="new_position_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Novo cargo</h4>
-      </div>
-      <div class="modal-body">
-        <%= render partial: 'positions/form',  modal: true %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

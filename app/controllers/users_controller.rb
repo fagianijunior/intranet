@@ -12,15 +12,18 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @uniforms_free = Uniform.where( user: nil )
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @position = Position.new
   end
 
   # GET /users/1/edit
   def edit
+    @position = Position.new
   end
 
   # POST /users
@@ -75,7 +78,7 @@ class UsersController < ApplicationController
     end
 
     def skip_password_attribute
-      if params[ :password ].blank? && params[ :password_confirmation ].blank?
+      if params[ :password ].blank?
         params.except!( :password, :password_confirmation )
       end
     end

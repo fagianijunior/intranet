@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   belongs_to :state
   belongs_to :position
   belongs_to :branch
+  has_many :uniforms
 
   before_save { self.email = email.downcase }
   before_save { self.name = name.humanize.titleize }

@@ -6,48 +6,61 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts "POPULANDO TABELA GENDERS"
-puts "------------------------"
-genders = Gender.create([{ gender: 'Masculino'}, { gender: 'Feminino' }])
+if Gender.count == 0 then
+  puts "POPULANDO TABELA GENDERS"
+  puts "------------------------"
+  genders = Gender.create([{ gender: 'Masculino'}, { gender: 'Feminino' }])
+end
 
-puts "POPULANDO TABELA STATES"
-puts "-----------------------"
-states = State.create([{ name: 'Ceará'}])
+if State.count ==0 then
+  puts "POPULANDO TABELA STATES"
+  puts "-----------------------"
+  states = State.create([{ name: 'Ceará'}])
+end
 
-puts "POPULANDO TABELA CITIES"
-puts "-----------------------"
-cities = City.create([{ name: 'Fortaleza', state: State.find_by_name('Ceará' )}])
+if City.count == 0 then
+  puts "POPULANDO TABELA CITIES"
+  puts "-----------------------"
+  cities = City.create([{ name: 'Fortaleza', state: State.find_by_name('Ceará' )}])
+end
 
-puts "POPULANDO TABELA POSITIONS"
-puts "-----------------------"
-positions = Position.create([{ position: 'Administrador' }])
+if Position.count == 0 then
+  puts "POPULANDO TABELA POSITIONS"
+  puts "-----------------------"
+  positions = Position.create([{ position: 'Administrador' }])
+end
 
-puts "POPULANDO TABELA BRANCHES"
-puts "-----------------------"
-branches = Branch.create([{ branch: 'ADM', address: 'Av. Das Graviolas, 360', city: City.find(1), state: State.find(1) }])
+if Branch.count == 0 then
+  puts "POPULANDO TABELA BRANCHES"
+  puts "-----------------------"
+  branches = Branch.create([{ branch: 'ADM', address: 'Av. Das Graviolas, 360', city: City.find(1), state: State.find(1) }])
+end
 
-puts "CRIANDO USUÁRIO PADRÃO"
-puts "----------------------"
-user = User.create([{ name: 'Administrador', email: 'adm@adm.com', password: 'admadm', password_confirmation: 'admadm', avatar: 'avatar.png', gender: Gender.find(1), birth_date: '1985-10-28', address: 'Av. Das Graviolas, 360', city: City.find(1), state: State.find(1), position: Position.find(1), branch: Branch.find(1), active: true }])
+if User.count == 0 then
+  puts "CRIANDO USUÁRIO PADRÃO"
+  puts "----------------------"
+  user = User.create([{ name: 'Administrador', email: 'adm@adm.com', password: 'admadm', password_confirmation: 'admadm', avatar: 'avatar.png', gender: Gender.find(1), birth_date: '1985-10-28', address: 'Av. Das Graviolas, 360', city: City.find(1), state: State.find(1), position: Position.find(1), branch: Branch.find(1), active: true }])
+end
 
-puts "POPULANDO TIPOS DE UNIFORME"
-puts "---------------------------"
-unifome_piece_type = UniformPieceType.create([{ name: 'Chapéu', picture: 'clothes/hat.png' },
-                                              { name: 'Boné', picture: 'clothes/cap.png' },
+if UniformPieceType.count == 0 then
+  puts "POPULANDO TIPOS DE UNIFORME"
+  puts "---------------------------"
+  unifome_piece_type = UniformPieceType.create([
+    { name: 'Chapéu', picture: 'clothes/hat.png' },
+    { name: 'Boné', picture: 'clothes/cap.png' },
 
-                                              { name: 'Mochila' },
-                                              { name: 'Bolsa', picture: 'clothes/bag.png' },
+    { name: 'Mochila' },
+    { name: 'Bolsa', picture: 'clothes/bag.png' },
 
-                                              { name: 'Luva', picture: 'clothes/shoes.png' },
+    { name: 'Luva', picture: 'clothes/shoes.png' },
+    { name: 'Camisa', picture: 'clothes/t-shirt.png'},
 
-                                              { name: 'Camisa', picture: 'clothes/t-shirt.png'},
+    { name: 'Colar' },
+    { name: 'Anel' },
+    { name: 'Botton' },
 
-                                              { name: 'Colar' },
-                                              { name: 'Anel' },
-                                              { name: 'Botton' },
-
-                                              { name: 'Calça', picture: 'clothes/pants.png' },
-                                              { name: 'Vestido', picture: 'clothes/dress.png'},
-
-                                              { name: 'Sapato', picture: 'clothes/shoes.png' }])
-
+    { name: 'Calça', picture: 'clothes/pants.png' },
+    { name: 'Vestido', picture: 'clothes/dress.png'},
+    { name: 'Sapato', picture: 'clothes/shoes.png' }
+  ])
+end

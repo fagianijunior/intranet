@@ -1,0 +1,51 @@
+<!--%= select_tag "Uniforme", options_from_collection_for_select(@uniforms_free, "id","uniform_piece_type") %-->
+<%= link_to 'Adicionar peca', uniforms_path, class: "btn btn-default" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Controle</th>
+      <th>Tipo</th>
+      <th>Grupo</th>
+      <th>Data de entrada</th>
+      <th>Vencimento</th>
+      <th>Dias para troca</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.uniforms.each do |uniform| %>
+      <tr>
+        <td>#<%= uniform.id.to_s.rjust(10,'0') %></td>
+        <td><%= uniform.uniform_piece_type.name %></td>
+        <td><%= uniform.uniform_piece_group.name %></td>
+        <td><%= uniform.entry %></td>
+        <td><%= uniform.expiration %></td>
+        <td><%= (uniform.expiration - Date.today).to_i %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--table style="width: 300px; height: 300px; border: 1px black solid">
+  <tr>
+    <td>1 </td>
+    <td>1 </td>
+    <td>1 </td>
+  </tr>
+  <tr>
+    <td>1 </td>
+    <td>1 </td>
+    <td>1 </td>
+  </tr>
+  <tr>
+    <td>1 </td>
+    <td>1 </td>
+    <td>1 </td>
+  </tr>
+  <tr>
+    <td>1 </td>
+    <td>1 </td>
+    <td>1 </td>
+  </tr>
+</table-->
+<br>
+<br>
+<br>

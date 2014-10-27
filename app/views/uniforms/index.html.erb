@@ -12,7 +12,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Controle</th>
               <th> </th>
               <th>Tipo</th>
               <th>Pertence ao grupo</th>
@@ -25,7 +25,7 @@
           <tbody>
             <% @uniforms.each do |uniform| %>
               <tr>
-                <td>#<%= uniform.id.to_s.rjust(6, '0') %></td>
+                <td>#<%= uniform.id.to_s.rjust(10, '0') %></td>
                 <td><%= image_tag(uniform.uniform_piece_type.picture, { width: 15, height: 15 } ) if uniform.uniform_piece_type.picture? %></td>
                 <td><%= uniform.uniform_piece_type.name %></td>
                 <td><%= uniform.uniform_piece_group.name %></td>

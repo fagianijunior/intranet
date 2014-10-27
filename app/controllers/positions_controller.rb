@@ -31,9 +31,11 @@ class PositionsController < ApplicationController
       if @position.save
         format.html { redirect_to @position, notice: 'Position was successfully created.' }
         format.json { render :show, status: :created, location: @position }
+        format.js   { render :show, status: :created, location: @position }
       else
         format.html { render :new }
         format.json { render json: @position.errors, status: :unprocessable_entity }
+        format.js   { render json: @position.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Ruby version
-ruby '2.1.2'
+ruby '2.1.3'
 
 #Upload de arquivo/imagens
 gem 'carrierwave', '~> 0.10.0'
